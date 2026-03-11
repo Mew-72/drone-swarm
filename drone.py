@@ -1,5 +1,8 @@
 import numpy as np
 
+from drone_state import DroneState
+
+
 class Drone:
     """
     Represents a single drone in the swarm with basic movement and communication capabilities.
@@ -16,6 +19,8 @@ class Drone:
         self.position = np.array(position)
         self.index = index
         self.target_position = np.array(position)  # Initialize with the current position
+        self.is_alive = True
+        self.state = DroneState.FOLLOWER
 
     def update_position(self, neighbor_positions, behavior_algorithms):
         """
